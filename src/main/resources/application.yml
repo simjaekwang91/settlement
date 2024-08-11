@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: settlement
+  jpa:
+    hibernate:
+      ddl-auto: update
+#    naming:
+#      implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    show-sql: true
+
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/settlementinfo
+    username: root
+    password: 1234
+    hikari:
+      connection-timeout: 30000 # 30 seconds
+      maximum-pool-size: 100
+      idle-timeout: 600000 # 10 minutes
+      max-lifetime: 1800000 # 30 minutes
+      pool-name: HikariCP
+      auto-commit: true
+
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: DEBUG
+        boot.autoconfigure.jdbc: DEBUG
